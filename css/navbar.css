@@ -1,0 +1,137 @@
+.topheader{
+    position: fixed;
+    box-shadow: 0 4px 5px var(--navbar-shallow-color);
+    background-color: var(--theme-color);
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.topnav{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* Logo */
+
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.logo img{
+    border-radius: 25%;
+}
+
+/* Menú */
+
+.menu{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li{
+    padding: 0 15px;
+}
+
+.menu a{
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 50px;
+    text-transform: uppercase;
+}
+
+.nav-menu-link:hover,
+.nav-menu-link_active{
+    background-color:var(--navbar-shallow-color);
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.open-menu,
+.close-menu{
+    display: none;
+}
+/* el valor a continuación del ancho máximo del viewport para dispositivos móviles 
+ se obtuvo del website de getBootstrap */
+@media (max-width: 768px) {
+    /* para probar la transición del tamaño del viewport 
+    descomentar el siguiente estilo a body */
+    
+    /*
+    body {
+        background-color: blue;
+    }
+    */
+    
+    /* Menú */
+
+    .menu{
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        align-items: center;
+        background-color: var(--menu-mobile-background-color);
+        height: 100%;
+        overflow-y: auto;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+    }
+
+    .menu li{
+        padding: 20 px 0;
+    }
+
+    .menu a{
+        color: var(--text-color-inverse);
+        line-height: 60px;
+    }
+
+    .nav-menu-link{
+        padding: 8px 12px;
+        border-radius: 5px;
+    }
+    
+    .nav-menu-link:hover,
+    .nav-menu-link_active{
+        background:none;
+        color:chartreuse;
+        transition: 0.5s;
+    }
+    
+    .open-menu,
+    .close-menu{
+        display: block;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .close-menu{
+        align-self: flex-end;
+        padding: 20px 15px;
+    }
+
+    .menu_opened{
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .open-menu:focus:not(:focus-visible),
+    .close-menu:focus:not(:focus-visible){
+        outline: none;
+    }
+}
